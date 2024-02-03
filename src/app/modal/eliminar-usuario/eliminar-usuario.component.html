@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>¿Está seguro que desea eliminar este usuario?</h1>
+<div mat-dialog-content>
+  <div [ngStyle]="{'text-align': 'center'}">
+    <div>{{userToDelete.id}}</div>
+    <div>{{userToDelete.title}} {{userToDelete.firstName}} {{userToDelete.lastName}}</div>
+    <img src="{{userToDelete.picture}}" [ngStyle]="{'width': '100px'}">
+  </div>
+</div>
+<div mat-dialog-actions>
+  <div [ngStyle]="{'display': 'flex','justify-content': 'center', 'width': '-webkit-fill-available'}">
+    <button (click)="eliminarUsuario(userToDelete.id)" [mat-dialog-close]="true" mat-raised-button color="primary">Eliminar</button>
+    <button (click)="cerrarModal()" mat-raised-button color="warn">Cancelar</button>
+  </div>
+</div>

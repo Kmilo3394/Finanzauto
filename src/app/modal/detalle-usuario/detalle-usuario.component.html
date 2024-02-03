@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Detalle de Usuario</h1>
+<div mat-dialog-content>
+    <div [ngStyle]="{'text-align': 'center', 'display': 'flex', 'flex-direction': 'column'}">
+        <label><strong>Id:</strong></label> <div>{{user.id}}</div>
+        <label><strong>Título:</strong></label> <div>{{user.title}}</div>
+        <label><strong>Nombre:</strong></label> <div>{{user.firstName}}</div>
+        <label><strong>Apellido:</strong></label> <div>{{user.lastName}}</div>
+        <div [ngStyle]="{'text-align': 'center', 'margin-top': '10px'}"><img src="{{user.picture}}" [ngStyle]="{'width': '100px'}"></div>
+    </div>
+</div>
+<div mat-dialog-actions>
+  <div [ngStyle]="{'display': 'flex','justify-content': 'center', 'width': '-webkit-fill-available'}">
+    <button (click)="cerrarModal()" mat-raised-button color="warn">Cerrar</button>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div [ngStyle]="{'display': 'flex', 'justify-content': 'flex-end'}">
+    <mat-card class="mt-10">
+        <mat-card-content>
+            <input type="text" placeholder="Buscar por ID" #buscar>
+            <button mat-button color="primary" [ngStyle]="{'margin-left': '10px', 'margin-right': '20px'}" (click)="crearUsuario()">Crear</button>
+        </mat-card-content>
+    </mat-card>
+</div>
+    
+<mat-card>
+    <mat-card-content>
+        <app-tabla-consulta></app-tabla-consulta>
+    </mat-card-content>
+</mat-card>
