@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Crear Usuario</h1>
+<div mat-dialog-content>
+    <form [formGroup]="formUser">
+        <div [ngStyle]="{'text-align': 'center', 'display': 'flex', 'flex-direction': 'column'}">
+            <label>Título:</label> <input type="text" formControlName="title" class="form-control" >
+            <div class="alert alert-danger" [hidden]="title.valid || title.pristine">El título es obligatorio</div>
+            <label>Nombre:</label> <input type="text" formControlName="firstName" class="form-control" >
+            <div class="alert alert-danger" [hidden]="firstName.valid || firstName.pristine">El nombre es obligatorio</div>
+            <label>Apellido:</label> <input type="text" formControlName="lastName" class="form-control" >
+            <div class="alert alert-danger" [hidden]="lastName.valid || lastName.pristine">El apellido es obligatorio</div>
+            <label>Foto:</label> <input type="text" formControlName="picture" class="form-control" >
+            <div class="alert alert-danger" [hidden]="picture.valid || picture.pristine">La URL de la foto es obligatoria</div>
+            <label>Email:</label> <input type="text" formControlName="email" class="form-control" >
+            <div class="alert alert-danger" [hidden]="email.valid || email.pristine">
+                <span *ngIf="email.errors?.['required']">
+                    El email es obligatorio
+                </span>
+                <span *ngIf="email.errors?.['email']">
+                    El email debe ser válido
+                </span>
+            </div>
+        </div>
+    </form>
+</div>
+<div mat-dialog-actions>
+  <div [ngStyle]="{'display': 'flex','justify-content': 'center', 'width': '-webkit-fill-available'}">
+    <button (click)="crearUsuario()" [mat-dialog-close]="true" mat-raised-button color="primary" [disabled]="formUser.invalid">Crear</button>
+    <button (click)="cerrarModal()" mat-raised-button color="warn">Cancelar</button>
+  </div>
+</div>

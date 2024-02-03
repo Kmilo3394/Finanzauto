@@ -1,0 +1,35 @@
+<table class="table" [ngStyle]="{'width': '-webkit-fill-available'}">
+    <thead>
+      <tr [ngStyle]="{'border-bottom': 'solid'}">
+        <th scope="col" [ngStyle]="{'text-align': 'center', 'border-bottom': 'inherit'}" >Id</th>
+        <th scope="col" [ngStyle]="{'text-align': 'center', 'border-bottom': 'inherit'}" >Nombres y apellidos</th>
+        <th scope="col" [ngStyle]="{'text-align': 'center', 'border-bottom': 'inherit'}" >Foto</th>
+        <th scope="col" [ngStyle]="{'text-align': 'center', 'border-bottom': 'inherit'}" >Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let user of usuarios">
+            <tr [ngStyle]="{'text-align': 'center'}">
+                <th scope="row">{{user.id}}</th>
+                <td>{{changeTitles(user.title)}} {{user.firstName}} {{user.lastName}}</td>
+                <td><img src={{user.picture}} [ngStyle]="{'max-width': '72px'}"></td>
+                <td>
+                    <mat-icon (click)="eliminarUsuario(user.id)">delete</mat-icon>
+                    <mat-icon (click)="editarUsuario(user.id)">edit</mat-icon>
+                    <mat-icon (click)="detalleUsuario(user.id)">details</mat-icon>
+                </td>
+              </tr>
+        </ng-container>
+    </tbody>
+  </table>
+  <mat-paginator #paginator
+  class="demo-paginator"
+  (page)="handlePageEvent($event)"
+  [length]="total"
+  [pageSize]="pageSize"
+  [showFirstLastButtons]=true
+  [pageSizeOptions]="[]"
+  [hidePageSize]=true
+  [pageIndex]="page"
+  aria-label="Select page">
+</mat-paginator>
